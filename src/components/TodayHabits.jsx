@@ -91,7 +91,7 @@ export default function TodayHabits() {
             </ContainerHabits>
           )}
         </>
-      );
+      );}
   
 const P = styled.p`
     font-family: "Lexend Deca", serif;
