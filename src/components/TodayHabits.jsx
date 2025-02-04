@@ -68,30 +68,30 @@ export default function TodayHabits() {
       }
       
   
-    return (
-      <>
-        {todayHabits == null ? (
-          <P>Carregando...</P>
-        ) : (
-          <ContainerHabits>
-            {todayHabits.map(({ id, name, done, currentSequence, highestSequence }) => (
-              <ContainerHabit key={id}>
-                <HabitsInfo>
-                  <h1>{name}</h1>
-                  <h2>{`Sequência atual: ${currentSequence} ${currentSequence > 1 ? "dias" : "dia"}`}</h2>
-                  <h2>{`Seu recorde: ${highestSequence} ${highestSequence > 1 ? "dias" : "dia"}`}</h2>
-                </HabitsInfo>
-  
-                <Box isDone={done} onClick={() => checkHabit(id, done)}>
-                  <img src={check} alt="check" />
-                </Box>
-              </ContainerHabit>
-            ))}
-          </ContainerHabits>
-        )}
-      </>
-    );
-  }
+      return (
+        <>
+          {todayHabits === null ? (
+            <p>Carregando...</p>
+          ) : todayHabits.length === 0 ? (
+            <p>Nenhum hábito para hoje.</p>
+          ) : (
+            <ContainerHabits>
+              {todayHabits.map(({ id, name, done, currentSequence, highestSequence }) => (
+                <ContainerHabit key={id}>
+                  <HabitsInfo>
+                    <h1>{name}</h1>
+                    <h2>{`Sequência atual: ${currentSequence} ${currentSequence > 1 ? "dias" : "dia"}`}</h2>
+                    <h2>{`Seu recorde: ${highestSequence} ${highestSequence > 1 ? "dias" : "dia"}`}</h2>
+                  </HabitsInfo>
+                  <Box isDone={done} onClick={() => checkHabit(id, done)}>
+                    <img src={check} alt="check" />
+                  </Box>
+                </ContainerHabit>
+              ))}
+            </ContainerHabits>
+          )}
+        </>
+      );
   
 const P = styled.p`
     font-family: "Lexend Deca", serif;
