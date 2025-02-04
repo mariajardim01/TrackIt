@@ -73,7 +73,8 @@ export default function RegisterPage(){
    function ErrorSignUp(error){
     setErrorSignUp(true)
     setTextErrorSignUp(error)
-    setIsLoading(false)
+    setTimeout(navigate("/"),2000)
+    
 
    }
 
@@ -174,7 +175,7 @@ const Form = styled.form`
 const  P = styled.p`
     font-family: "Lexend Deca", serif;
     font-size: large;
-    color: red;
+    color: #3f3f3f;
     visibility: ${({errorSignUp})=> errorSignUp ? "visible" : "hidden"};
     
 `

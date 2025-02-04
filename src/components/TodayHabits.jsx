@@ -71,9 +71,9 @@ export default function TodayHabits() {
       return (
         <>
           {todayHabits === null ? (
-            <p>Carregando...</p>
+            <P>Carregando...</P>
           ) : todayHabits.length === 0 ? (
-            <p>Nenhum hábito para hoje.</p>
+            <P>Nenhum hábito para hoje.</P>
           ) : (
             <ContainerHabits>
               {todayHabits.map(({ id, name, done, currentSequence, highestSequence }) => (
