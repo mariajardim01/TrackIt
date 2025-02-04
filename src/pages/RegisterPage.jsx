@@ -73,7 +73,7 @@ export default function RegisterPage(){
    function ErrorSignUp(error){
     setErrorSignUp(true)
     setTextErrorSignUp(error)
-    setTimeout(navigate("/"),2000)
+    setTimeout(navigate("/"),5000)
     
 
    }
