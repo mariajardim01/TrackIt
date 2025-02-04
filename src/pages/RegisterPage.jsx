@@ -79,7 +79,7 @@ export default function RegisterPage(){
    }
 
     function signUp (e){
-      if (!errorEmail && !errorName && !errorPassword && !errorPhoto){
+      if (errorEmail == "false" && errorName == "false" && errorPassword == "false" && errorPhoto == "false"){
        e.preventDefault()
        setIsLoading(true)
 
