@@ -35,21 +35,21 @@ export default function RegisterPage(){
       if (!value.trim()) {
         setError("true");
         setErrorText("Campo obrigatório!");
-        setIsLoading(false)
+    
         return;
       }
   
       if (field === "email" && !/\S+@\S+\.\S+/.test(value)) {
         setError("true");
         setErrorText("Email inválido!");
-        setIsLoading(false)
+       
         return;
       }
   
       if (field === "senha" && value.length < 6) {
         setError("true");
         setErrorText("A senha deve ter pelo menos 6 caracteres!");
-        setIsLoading(false)
+       
         return;
         
       }
@@ -57,7 +57,7 @@ export default function RegisterPage(){
       if (field === "foto" && !value.startsWith("http")) {
         setError("true");
         setErrorText("A URL da foto deve começar com 'http'");
-        setIsLoading(false)
+     
         return;
       }
   
@@ -79,6 +79,7 @@ export default function RegisterPage(){
    }
 
     function signUp (e){
+      if (!errorEmail && !errorName && !errorPassword && !errorPhoto){
        e.preventDefault()
        setIsLoading(true)
 
@@ -88,7 +89,7 @@ export default function RegisterPage(){
            promise.then((res)=>SuccessSignUp())
            promise.catch((error)=>ErrorSignUp(error.response.data.message))
            
-        }
+        }}
 
        
     }
