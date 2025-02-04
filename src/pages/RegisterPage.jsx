@@ -79,8 +79,9 @@ export default function RegisterPage(){
    }
 
     function signUp (e){
+      e.preventDefault()
       if (errorEmail == "false" && errorName == "false" && errorPassword == "false" && errorPhoto == "false"){
-       e.preventDefault()
+       
        setIsLoading(true)
 
        const body ={ email: `${valueEmail}`, name: `${valueName}`, image:`${valuePhoto}`, password:`${valuePassword}` }
