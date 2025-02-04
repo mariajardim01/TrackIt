@@ -72,8 +72,16 @@ export default function RegisterPage(){
    }
    function ErrorSignUp(error){
     setErrorSignUp(true)
-    setTextErrorSignUp(error)
-    setTimeout(navigate("/"),5000)
+    setTextErrorSignUp(error.response.data.message)
+    if (error.status == 422){
+      setIsLoading(false)
+      return
+    }
+    else if (error.status == 409){
+      setTimeout(()=>navigate("/"),2000)
+      return
+    }
+   
     
 
    }
@@ -88,7 +96,7 @@ export default function RegisterPage(){
        if (errorEmail == "false" && errorName == "false" && errorPassword == "false" && errorPhoto == "false"){
            const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up",body)
            promise.then((res)=>SuccessSignUp())
-           promise.catch((error)=>ErrorSignUp(error.response.data.message))
+           promise.catch((error)=>ErrorSignUp(error))
            
         }}
 
