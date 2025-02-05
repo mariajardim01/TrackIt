@@ -23,7 +23,7 @@ const Page = styled.div`
 height: 100%;
 box-sizing: border-box;
 width: 100vw;
-min-height: 100vh;
+min-height: calc(100vh - 8vh);
 background-color: #f2f2f2;
 padding-left: 6vw;
 padding-right: 6vw;
