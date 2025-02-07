@@ -16,38 +16,38 @@ export default function RegisterPage(){
     const [textErrorSignUp, setTextErrorSignUp] = useState("Error")
 
     const [valueEmail, setValueEmail] = useState("");
-    const [errorEmail, setErrorEmail] = useState("false");
+    const [errorEmail, setErrorEmail] = useState(false);
     const [errorTextEmail, setErrorTextEmail] = useState(" Error");
   
     const [valuePassword, setValuePassword] = useState("");
-    const [errorPassword, setErrorPassword] = useState("false");
+    const [errorPassword, setErrorPassword] = useState(false);
     const [errorTextPassword, setErrorTextPassword] = useState("Error ");
   
     const [valueName, setValueName] = useState("");
-    const [errorName, setErrorName] = useState("false");
+    const [errorName, setErrorName] = useState(false);
     const [errorTextName, setErrorTextName] = useState(" Error");
   
     const [valuePhoto, setValuePhoto] = useState("");
-    const [errorPhoto, setErrorPhoto] = useState("false");
+    const [errorPhoto, setErrorPhoto] = useState(false);
     const [errorTextPhoto, setErrorTextPhoto] = useState("Error ");
   
     const validateInput = (field, value, setError, setErrorText) => {
       if (!value.trim()) {
-        setError("true");
+        setError(true);
         setErrorText("Campo obrigatório!");
     
         return;
       }
   
       if (field === "email" && !/\S+@\S+\.\S+/.test(value)) {
-        setError("true");
+        setError(true);
         setErrorText("Email inválido!");
        
         return;
       }
   
       if (field === "senha" && value.length < 6) {
-        setError("true");
+        setError(true);
         setErrorText("A senha deve ter pelo menos 6 caracteres!");
        
         return;
@@ -55,14 +55,14 @@ export default function RegisterPage(){
       }
   
       if (field === "foto" && !value.startsWith("http")) {
-        setError("true");
+        setError(true);
         setErrorText("A URL da foto deve começar com 'http'");
      
         return;
       }
   
       
-      setError("false");
+      setError(false);
       setErrorText("Error ");
      
     };
@@ -88,12 +88,12 @@ export default function RegisterPage(){
 
     function signUp (e){
       e.preventDefault()
-      if (errorEmail == "false" && errorName == "false" && errorPassword == "false" && errorPhoto == "false"){
+      if (errorEmail == false && errorName == false && errorPassword == false && errorPhoto == false){
        
        setIsLoading(true)
 
        const body ={ email: `${valueEmail}`, name: `${valueName}`, image:`${valuePhoto}`, password:`${valuePassword}` }
-       if (errorEmail == "false" && errorName == "false" && errorPassword == "false" && errorPhoto == "false"){
+       if (errorEmail == false && errorName == false && errorPassword == false && errorPhoto == false){
            const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up",body)
            promise.then((res)=>SuccessSignUp())
            promise.catch((error)=>ErrorSignUp(error))

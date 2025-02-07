@@ -11,7 +11,7 @@ export default function Button({text,onClick, isLoading, heigh, error,width}){
     
     return(
     <>
-    <Button1 onClick={onClick} height={heigh} disabled={ error == "true"} width={width}>
+    <Button1 onClick={onClick} height={heigh} disabled={ error == true} width={width}>
     
     {isLoading == true? <ReactLoading type="bubbles" color="#fff" /> : text}
     
@@ -21,18 +21,20 @@ export default function Button({text,onClick, isLoading, heigh, error,width}){
 }
 
 const Button1 = styled.button`
+    display: flex;
     box-sizing: border-box;
     font-family: "Lexend Deca", serif;
     border: none;
     font-size: large;
     color: white;
     text-align: center;
+    
     align-items: center;
     justify-content: center;
     &:disabled{
         background-color:#d4d4d4;
     }
-    display: flex;
+    
     
     background-color: #52B6FF;
     margin-bottom: 2vh;

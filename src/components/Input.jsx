@@ -41,7 +41,7 @@ const InputContainer = styled.div`
   & input {
     width: 100%;
     padding: 12px;
-    border:${({error}) => error == "true"? "2px solid red" : " 2px solid #D4D4D4" };
+    border:${({error}) => error == true? "2px solid red" : " 2px solid #D4D4D4" };
     border-radius: 5px;
     font-size: large;
     outline: none;
@@ -86,7 +86,7 @@ const InputContainer = styled.div`
   }
 
   p{
-    visibility: ${({error}) => (error == "true") ? "visible" : "hidden" };
+    visibility: ${({error}) => (error == true) ? "visible" : "hidden" };
     text-align: center;
     color: red;
     font-family: "Lexend Deca", serif;

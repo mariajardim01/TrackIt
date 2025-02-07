@@ -9,7 +9,7 @@ import UserContext from "../context/UserConstext"
 export default function AddHabit(){
     const[isLoading,setIsLoading] = useState(false)
     const [valueName, setValueName] = useState("")
-    const [nameError, setNameError] = useState ("false")
+    const [nameError, setNameError] = useState (false)
     const [nameErrorText, setNameErrorText] = useState("")
     const [isShown, setIsShown] = useState(false)
     const [days, setDays] = useState([]);
@@ -37,14 +37,14 @@ export default function AddHabit(){
             
             if (!value.trim()) { 
                  
-                 setNameError("true")
+                 setNameError(true)
                  setNameErrorText("O nome não pode ser vazio")
-                 setIsLoading("false")
+                 setIsLoading(false)
                  
             } else {
 
                 setIsLoading(false)
-                 setNameError("false") 
+                 setNameError(false) 
                  setNameErrorText("")
             }
         
@@ -59,7 +59,7 @@ export default function AddHabit(){
         setIsLoading(false)
         setIsShown(false)
         setValueName("")
-        setNameError("false")
+        setNameError(false)
         setDays([])
         
     }

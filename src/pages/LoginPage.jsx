@@ -70,7 +70,7 @@ export default function LoginPage(){
           type="email"
           value={valueEmail}
           setValue={setValueEmail}
-          errorText={"a"}
+          errorText={""}
           isLoading={isLoading}
           
         />
@@ -79,7 +79,7 @@ export default function LoginPage(){
           type="password"
           value={valuePassword}
           setValue={setValuePassword}
-          errorText={"a"}
+          errorText={""}
           isLoading={isLoading}
           
           
